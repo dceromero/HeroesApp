@@ -1,0 +1,24 @@
+<div class="flex flex-column">
+    <span class="text-lag mb-4">Login</span>
+    <mat-form-field>
+        <mat-label>Usuario</mat-label>
+        <input type="text" matInput placeholder="Nombre de usuario">
+        <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>contraseña</mat-label>
+        <input [type]="hide ? 'password' : 'text'" matInput placeholder="constraseña de usuario">
+        <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" (click)="onLogin()">
+        <mat-icon>login</mat-icon>
+        Ingresar
+    </button>
+</div>
+<div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/new-account">Registrarme</a>
+</div>

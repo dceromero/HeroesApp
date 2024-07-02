@@ -1,0 +1,19 @@
+<div class="flex flex-column">
+    <h3>Buscador</h3>
+    <mat-divider></mat-divider>
+    <mat-form-field appearance="outline">
+        <mat-label>Buscador de Heroes</mat-label>
+        <input matInput placeholder="Buscador de Heroes" [formControl]="searchInpt" (input)="searchHero()"
+            [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelected($event)">
+            <mat-option *ngFor="let hero of heroes" [value]="hero">
+                {{hero.superhero}}
+            </mat-option>
+            <mat-option value='' *ngIf="heroes.length === 0 && searchInpt.value && searchInpt.value.length>0">
+                No se encontro infomación el termino de busqueda {{searchInpt.value}}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    {{selectedHero | json}}
+</div>
